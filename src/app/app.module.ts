@@ -8,7 +8,8 @@ import { Platform } from 'ionic-angular';
 
 import * as $ from 'jquery';
 
-import {Navigation} from "../_0_PAGE";
+import {MainSlider} from "../_1_MainSlider";
+import {Produkte} from "../_3_Produkte";
 
 
 @Component({
@@ -16,7 +17,7 @@ import {Navigation} from "../_0_PAGE";
 })
 export class MyApp {
 
-  rootPage:any = Navigation;
+  rootPage:any = MainSlider;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -34,7 +35,8 @@ export class MyApp {
 @NgModule({
   declarations: [
     MyApp,
-    Navigation
+    MainSlider,
+    Produkte
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,7 @@ export class MyApp {
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    Navigation
+    MainSlider
 ],
   providers: [
     StatusBar,
