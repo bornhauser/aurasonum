@@ -436,7 +436,7 @@ declare var window: any;
                 <div class="text-box">
                   <h2>Technische Unterstützung</h2>
                   <div class="line"></div>
-                  <p>Haben Sie bereits eine komplette Musik-Anlage und möchten nur die Lautsprecher ersetzten?
+                  <p>Haben Sie bereits eine komplette Musik-Anlage und möchten nur die Lautsprecher ersetzen?
                     Beim Kauf von neuen Lautsprechern zu einer bestehenden Anlage, empfiehlt es sich ein
                     paar Überlegungen zu machen: Ist der Verstärker klanglich und leistungsmässig noch der richtige?
                     Sind die Audio-Verbindungskabel qualitativ ausreichend? Oder ist der Querschnitt der
@@ -454,7 +454,7 @@ declare var window: any;
                   <h2>Raumakustik</h2>
                   <div class="line"></div>
                   <p>Jeder Raum \`schwingt\` bei der Beschallung mit Musik ganz unterschiedlich mit. Das kann schön, oder
-                    störend sein kann. Der richtige Standort der Lautsprecher kann diesem Problem ein Stück weit
+                    störend sein. Der richtige Standort der Lautsprecher kann diesem Problem ein Stück weit
                     entgegen wirken. Damit Sie die Lautsprecher aber dort positionieren können, wo es ihnen am besten gefällt,
                     sind oftmals akustische Verbesserungen im Raum erforderlich. Solche Anpassungen sind meistens
                     schon mit kleinen Eingriffen und ohne grösseren finanziellen Aufwand zu realisieren. Gerne beraten
