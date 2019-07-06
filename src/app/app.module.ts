@@ -6,11 +6,9 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Component } from '@angular/core';
 import { Platform } from 'ionic-angular';
 
-import * as $ from 'jquery';
-
 import {MainSlider} from "../_1_MainSlider";
-import {Produkte} from "../_3_Produkte";
 
+declare var jQuery: any;
 
 @Component({
   template: '<ion-nav [root]="rootPage"></ion-nav>'
@@ -23,7 +21,7 @@ export class MyApp {
     platform.ready().then(() => {
 
       //manual loading of the favicon
-      $('link[rel="icon"]').attr("href","assets/img/favicon/favicon.png?anticache="+ Math.random());
+      jQuery('link[rel="icon"]').attr("href","assets/img/favicon/favicon.png?anticache="+ Math.random());
 
       statusBar.styleDefault();
       splashScreen.hide();
@@ -36,7 +34,6 @@ export class MyApp {
   declarations: [
     MyApp,
     MainSlider,
-    Produkte
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,4 @@
-//---------------------------------//
+//------------------------------------------------------------//
 //Variablen
 
 $colorMain: #6775e2;
@@ -9,13 +9,15 @@ $colorBeigeBright: #f9f1ec;
 $colorGreyVeryBright: #e8e8e8;
 $colorGreyBright: #bebebe;
 $colorGreyMedium: #9f9f9f;
-$colorGreyDark: #5c5659;
+$colorGreyDark: #5a5a5a;
 
 $boxShadowHomeButton: 1px 1px 10px 2px rgba(0, 0, 0, 0.20);
 $boxShadowHover: 2px 2px 5px 0px rgba(0, 0, 0, 0.20);
 
-$responsiveBreakSmall: 400px;
-$responsiveBreakMiddle: 600px;
+$responsiveBreakVerySmall: 350px;
+$responsiveBreakSmall: 500px;
+$responsiveBreakMiddle: 650px;
+$responsiveBreakBig: 800px;
 
 $fontSizeBasic: 16;
 
@@ -23,38 +25,43 @@ $fontWeightRegular: 400;
 $fontWeightlight: 300;
 $fontWeightBold: 600;
 
-//---------------------------------//
+//------------------------------------------------------------//
 //Allgemein
 
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,800');
 
-  .stopEvents{
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom:0;
-    right:0;
-  }
-
+.stopEvents {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
 
 .stopGestures {
-  //pointer-events: none;
   opacity: 0;
   position: fixed;
   border: 2px solid red;
   top: 0;
   left: 0;
-  bottom:0;
-  right:0;
+  bottom: 0;
+  right: 0;
   z-index: 100000000200000000;
   display: none;
 }
 
+.no-see {
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
 
 body {
+  overflow: auto !important;
 
-
-  overflow: auto!important;
+  b {
+    font-weight: 600;
+  }
 
   h1 {
     font-weight: 200;
@@ -62,17 +69,16 @@ body {
   }
 
   *:not(ion-icon) {
-
     font-family: 'Open Sans', serif;
     font-weight: 200;
     letter-spacing: 0.01em;
   }
 
-  .smallSpacing {
+  .small-spacing {
     height: 10px;
   }
 
-  .middleSpacing {
+  .middle-spacing {
     height: 20px;
   }
 
@@ -101,7 +107,7 @@ body {
   }
 }
 
-//---------------------------------//
+//------------------------------------------------------------//
 //Main Layout
 
 body {
@@ -118,7 +124,6 @@ body {
     color: $colorGreyDark;
     background-color: $colorBeigeVeryBright;
     text-align: center;
-      overflow: auto;
 
     @media screen and (min-width: $responsiveBreakMiddle) {
       padding: 20px 20px 0;
@@ -132,7 +137,7 @@ body {
   }
 
   ng-component.app-root {
-    min-width: 750px;
+    min-width: 300px;
 
     text-align: left;
     position: relative;
@@ -141,28 +146,41 @@ body {
     @media screen and (min-width: $responsiveBreakMiddle) {
       display: block;
       margin: auto;
-      max-width: 1000px;
+      max-width: 1300px;
       height: 95vh;
       box-shadow: 3px 3px 20px 0px rgba(0, 0, 0, 0.50);
     }
   }
 }
 
-
 .logoButton {
   z-index: 50000000000000;
   position: absolute;
   left: 30px;
   top: 20px;
-  width: 110px;
-  height: 110px;
+  width: 130px;
+  height: 130px;
   border-radius: 10px;
   border: 2px solid #7f7f7f;
-  background-color: black!important;
+  background-color: black !important;
   display: inline-block;
   background-image: url("../assets/img/logos/auraSonum2.png");
   background-size: 120%;
   background-position: top;
+
+  @media screen and (max-width: $responsiveBreakMiddle) {
+    width: 100px;
+    height: 100px;
+    left: 20px;
+    top: 15px;
+  }
+
+  @media screen and (max-width: $responsiveBreakSmall) {
+    width: 90px;
+    height: 90px;
+    left: 15px;
+    top: 10px;
+  }
 
   h1 {
     padding-bottom: 10px;
@@ -174,7 +192,7 @@ body {
   }
 }
 
-//---------------------------------//
+//------------------------------------------------------------//
 //Header
 
 ion-header.mainHeader {
@@ -186,9 +204,9 @@ ion-header.mainHeader {
   }
 
   ion-navbar {
-
     height: 70px !important;
     overflow: visible;
+    z-index: 100000000000000000000000000000000000000;
 
     .navbarButtonContainer {
       position: absolute;
@@ -202,7 +220,6 @@ ion-header.mainHeader {
     .toolbar-background {
       background-color: #6f696d;
     }
-
 
     .navbarButtonStrip {
       display: flex;
@@ -219,16 +236,66 @@ ion-header.mainHeader {
         margin-top: 4px;
       }
 
-      .buttonGroupLeft {
+      .hsl-asm {
         position: relative;
         top: 2px;
-        font-size: 1.3em;
         color: #aeaeae;
-        margin-left: 190px;
+        left: 190px;
+        font-size: 20px;
+        @media screen and (max-width: $responsiveBreakMiddle) {
+          left: 170px;
+        }
       }
 
       .buttonGroupRight {
         margin-right: 8px;
+        @media screen and (max-width: $responsiveBreakMiddle) {
+          display: none;
+        }
+      }
+
+      .hamburger-menu {
+        z-index: 100000000000000000000000000000000000000;
+        position: absolute;
+        top: 15px;
+        left: 87vw;
+        display: none !important;
+
+        @media screen and (max-width: $responsiveBreakMiddle) {
+          display: block !important;
+        }
+
+        .icon-button-icon._hamburger {
+          opacity: 0.5 !important;
+          background-image: url("../assets/img/icons/menu.png");
+        }
+
+        .menu-list {
+          display: none;
+          position: absolute;
+          top: 100%;
+          right: 0;
+          border: 1px solid #dedede;
+          border-radius: 5px;
+          width: auto;
+
+          button {
+            white-space: nowrap;
+            color: grey;
+            font-size: 16px;
+            text-transform: uppercase;
+            background-color: #f1f1f1;
+            margin: 0 !important;
+            border-bottom: 1px solid #dedede;
+            display: block;
+            width: 100%;
+            border-radius: 0 !important;
+            padding: 15px 20px;
+            &:last-child {
+              border: 0;
+            }
+          }
+        }
       }
 
       .icon-button {
@@ -252,7 +319,6 @@ ion-header.mainHeader {
         width: 40px;
         height: 40px;
         overflow: hidden;
-        //box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
 
         &.active {
           background-color: black;
@@ -286,11 +352,10 @@ ion-header.mainHeader {
   }
 }
 
-//---------------------------------//
+//------------------------------------------------------------//
 //Content
 
 ion-content {
-
 
   .fixed-content {
     margin-top: 200px;
@@ -298,13 +363,14 @@ ion-content {
   }
 }
 
-//---------------------------------//
+//------------------------------------------------------------//
 //Slider
 
 ion-slides .swiper-slide {
   justify-content: flex-start !important;
   align-items: flex-start;
   background-color: #d9d9d9;
+  background-size: 100%;
 }
 
 .mainSlides {
@@ -316,50 +382,54 @@ ion-slides .swiper-slide {
   overflow: auto;
 }
 
-.imageSlider {
-  width: 100%;
-  height: 400px;
+.imageSliderContainer {
 
-  .swiper-pagination-bullet {
-    position: relative;
-    bottom: 3px;
-    width: 12px;
-    height: 12px;
-    border: 2px solid white !important;
-    opacity: 1;
-    background-color: transparent;
+  .imageSlider {
+    background-color: black;
+    @media screen and (max-width: $responsiveBreakSmall) {
+      padding: 30px 0;
+    }
 
-    &.swiper-pagination-bullet-active {
-      border: 2px solid white !important;
-      background-color: white;
+    .sliderImage {
+      overflow: hidden;
+      width: 100%;
+      height: 600px;
+      @media screen and (max-width: $responsiveBreakBig) {
+        height: 400px;
+      }
+
+      @media screen and (max-width: $responsiveBreakMiddle) {
+        height: 300px;
+      }
+
+      @media screen and (max-width: $responsiveBreakSmall) {
+        height: 200px;
+      }
+
+      background-size: cover;
+      &._1 {
+        background-image: url("../assets/img/mainVisuals/mainVisuals.jpg")
+      }
+      &._2 {
+        background-image: url("../assets/img/mainVisuals/mainVisuals2.jpg")
+      }
+      &._3 {
+        background-image: url("../assets/img/mainVisuals/mainVisuals3.jpg")
+      }
+      &._4 {
+        background-image: url("../assets/img/mainVisuals/mainVisuals4.jpg")
+      }
+      &._5 {
+        background-image: url("../assets/img/mainVisuals/mainVisuals5.jpg")
+      }
+      &._6 {
+        background-image: url("../assets/img/mainVisuals/mainVisuals6.jpg")
+      }
     }
   }
-
-  ion-slide {
-    position: relative;
-  }
-
-  .sliderImage {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-size: cover;
-    &._1 {
-      background-image: url("../assets/img/pictures/sliderImage1.jpg")
-    }
-    &._2 {
-      background-image: url("../assets/img/pictures/sliderImage2.jpg")
-    }
-    &._3 {
-      background-image: url("../assets/img/pictures/sliderImage3.jpg")
-    }
-  }
-
 }
 
-//---------------------------------//
+//------------------------------------------------------------//
 //Footer
 ion-footer {
   border-top: 1px solid #cbcbcb;
@@ -380,10 +450,7 @@ ion-footer {
   }
 }
 
-//---------------------------------//
-//Content
-
-//---------------------------------//
+//------------------------------------------------------------//
 //Header
 
 .headerTitle {
@@ -401,18 +468,19 @@ ion-footer {
 #home .headerTitle {
   background-color: rgba(0, 0, 0, 0.76);
   font-size: 20px;
-  top: 340px;
+  top: 336px;
   bottom: auto;
   z-index: 100000000000;
   letter-spacing: 3px;
 }
 
-//---------------------------------//
+//------------------------------------------------------------//
 //Content
 
 ion-content {
   font-weight: 400;
 }
+
 
 .contentContainer {
   text-align: center;
@@ -447,8 +515,6 @@ ion-content {
   display: inline-block;
   vertical-align: top;
   background-size: cover;
-  width: 300px;
-  height: 200px;
 
   &.header {
     width: 100%;
@@ -458,7 +524,6 @@ ion-content {
   &._contact {
     background-image: url("../assets/img/pictures/contact.jpg");
   }
-
   &._map {
     background-image: url("../assets/img/pictures/map.jpg");
   }
@@ -467,92 +532,182 @@ ion-content {
   }
 }
 
-.zitat {
-  margin-top: 30px;
-  text-align: center;
-  color: $colorGreyDark;
+.slider-strip {
+  display: block;
+  position: relative;
+  top: -5px;
+  width: 100%;
+  background-color: #6f696d;
+  font-size: 15px;
+  color: #b7b7b7;
+  padding: 10px;
+}
 
-  p {
-    display: inline-block;
-    font-style: italic;
-    text-align: left;
-    max-width: 400px;
+.footer-strip {
+  display: block;
+  position: relative;
+  width: 100%;
+  background-color: #6f696d;
+  color: #b7b7b7;
+  height: 20px;
+}
 
-    span {
-      font-weight: 200;
-      font-size: 0.8em;
-    }
+#service, #home {
+  .item-box {
+    position: relative;
+    left: -20%;
+    width: 120%;
+    padding-left: 22%;
   }
 }
 
-.item {
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
-  position: relative;
-  margin: 30px 50px;
-  font-size: 0;
-  background-color: $colorGreyVeryBright;
-  //min-height: 300px;
-
-  &.left {
-    text-align: left;
-    .box {
-      text-align: left;
-    }
+.the-content {
+  padding: 30px 50px 60px;
+  @media screen and (max-width: $responsiveBreakBig) {
+    padding: 15px 20px 40px;
   }
-  &.right {
-    text-align: right;
-    .box {
-      text-align: right;
-    }
+  @media screen and (max-width: $responsiveBreakMiddle) {
+    padding: 5px 10px 20px;
+  }
+  @media screen and (max-width: $responsiveBreakSmall) {
+    padding: 5px 5px 20px;
   }
 
-  .box {
-    display: inline-block;
-    padding: 30px;
-    vertical-align: top;
-    height: 100%;
-    font-size: 16px;
-    min-height: 200px;
-    max-width: 50%;
+  .item-box {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.16);
+    margin-bottom: 40px;
+    font-size: 0;
+    background-color: $colorGreyVeryBright;
+    padding: 20px;
 
-    .line {
-      display: inline-block;
+    &.less-margin {
+      margin-bottom: 0;
+    }
+
+    .row {
       position: relative;
-      top: -4px;
-      width: 60px;
-      border-bottom: 3px solid #c6c6c6;
-    }
+      text-align: left;
+      min-height: 200px;
+      padding-left: 310px;
+      &.no-picture {
+        padding-left: 0 !important;
+      }
+      @media screen and (max-width: $responsiveBreakBig) {
+        padding-left: 250px;
+      }
+      @media screen and (max-width: $responsiveBreakMiddle) {
+        padding-left: 200px;
+        min-height: 180px;
+      }
+      @media screen and (max-width: $responsiveBreakSmall) {
+        padding-left: 0;
+        padding-top: 190px;
+        min-height: 150px;
+      }
 
-    h2 {
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      font-weight: 200;
-      color: $colorGreyMedium;
-      font-size: 30px;
-      margin: 0 0 8px;
-    }
-    p {
-      margin: 5px 0;
-    }
-    span {
-      margin-left: 10px;
-      font-size: 0.8em;
-      font-style: italic;
+      .picture {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 200px;
+        height: 200px;
+        margin-right: 120px;
+
+        @media screen and (max-width: $responsiveBreakMiddle) {
+          width: 170px !important;
+          height: 170px !important;
+        }
+        &._1 {
+          background-image: url("../assets/img/pictures/focus_1.jpg");
+        }
+        &._2 {
+          background-image: url("../assets/img/pictures/focus_2.jpg");
+        }
+        &._3 {
+          background-image: url("../assets/img/pictures/focus_3.jpg");
+        }
+
+        &:after {
+          content: "";
+          border-left: 1px solid #858585;
+          display: block;
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          right: -60px;
+          @media screen and (max-width: $responsiveBreakBig) {
+            display: none;
+          }
+        }
+      }
+
+      .text-box {
+        display: inline-block;
+        vertical-align: top;
+        height: auto;
+        width: 100%;
+        font-size: 14px;
+        position: relative;
+        padding-right: 20px;
+
+        h2, h1 {
+          text-transform: uppercase;
+          letter-spacing: 0.15em;
+          font-weight: 200;
+          color: $colorGreyMedium;
+          font-size: 30px;
+          margin: 0 0 8px;
+        }
+        h1 {
+          font-size: 40px;
+        }
+        .line {
+          display: inline-block;
+          position: relative;
+          top: -4px;
+          width: 60px;
+          border-bottom: 3px solid #c6c6c6;
+        }
+        p {
+          margin: 5px 0;
+          letter-spacing: 0.5px;
+          color: #212121;
+        }
+        span {
+          margin-left: 10px;
+          font-size: 0.8em;
+          font-style: italic;
+        }
+
+        .text-link {
+         color: grey;
+        }
+      }
     }
   }
 
-  .picture {
-    vertical-align: center;
-    border: 10px solid $colorGreyVeryBright;
-    display: inline-block;
-    height: 100% !important;
-    min-height: 200px;
-    width: 300px;
-    top: 0;
-    right: 0;
-    bottom: 0;
-  }
 
+  .link-box {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
+    position: relative;
+    margin-bottom: 20px;
+    border-radius: 3px;
+    background: linear-gradient(to bottom, #f5f5f5 0%, #c8c8c8 100%);
+    font-weight: 500;
+    color: $colorGreyDark;
+    padding: 20px 0;
+    //transition: color 0.5s;
+    cursor: pointer;
+    @media screen and (max-width: $responsiveBreakMiddle) {
+
+
+
+    }
+
+    &:hover {
+      color: #818181;
+    }
+  }
 }
 
 ion-icon {
@@ -561,99 +716,181 @@ ion-icon {
   margin-left: 5px;
 }
 
-.link-box {
-  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.05);
-  position: relative;
-  margin: 30px 50px;
-  //font-size: 12px;
-
-  background-color: $colorGreyVeryBright;
-  color: $colorGreyDark !important;
-  padding: 20px 0;
-  transition: color 0.5s;
-  cursor: pointer;
-  font-weight: 200;
-
-  &:hover {
-    color: black;
-  }
-}
-
-._prismaBackground {
-  background-color: $colorGreyDark;
-  height: 150px !important;
-}
-
-.item.small {
-  .picture {
-    height: 150px;
-    width: 200px;
-  }
-  .box {
-    font-size: 15px;
-    min-height: 150px;
-  }
-}
-
 //---------------------------------//
 //Produkte
 
-#produkte {
+#produkte, #retailer {
 
-
-  .button-header {
-    z-index: 1000000000000;
-    position: absolute;
-    //border: 1px solid red;
-    width: 100%;
-    height: 150px;
+  ._prismaBackground {
+    background-color: $colorGreyDark;
+    height: 120px !important;
+    background-image: url("../assets/img/pictures/panorama.jpg");
+    background-position-y: 90%;
   }
 
   .picture._prisma, .picture._tonika {
     position: absolute;
-    right: 20px;
-    top: -10px;
-    background-image: url("../assets/img/pictures/prisma_5.png");
+    right: 0;
+    top: 4vh;
+    background-image: url("../assets/img/pictures/prisma_8.png");
     background-size: contain;
-    height: 90vh;
-    width: 300px;
+    background-position: top;
+    height: 60vw;
+    max-height: 800px;
+    width: 30vw;
     z-index: 500000000000;
-    a {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-    }
   }
 
   .picture._tonika {
     background-image: url("../assets/img/pictures/tonika_1.png");
-    height: 50vh;
+    height: 35vw;
   }
 
-  .box {
-    width: 100%;
-    max-width: 65%;
+  .the-content {
+
+    b {
+      //font-weight: 600;
+    }
+
+    .item-box {
+      position: relative;
+      padding: 50px;
+
+      .text-box.thin {
+        max-width: 50%;
+        @media screen and (max-width: $responsiveBreakBig) {
+          max-width: 100%;
+        }
+      }
+
+      .row {
+        padding: 0;
+        width: 100%;
+        min-height: auto;
+        margin-bottom: 40px;
+
+        &.has-picture-right {
+          width: 65%;
+        }
+
+        &.has-picture-left {
+          padding-left: 240px;
+          width: 100%;
+          @media screen and (max-width: $responsiveBreakSmall) {
+            padding: 200px 0 0;
+          }
+          .picture {
+            //height:
+            //border: 1px solid red;
+          }
+
+          .picture:after {
+            display: none;
+          }
+        }
+
+        &.table {
+          @media screen and (max-width: $responsiveBreakSmall) {
+            width: 100% !important;
+          }
+        }
+
+        &.tech-detail {
+          min-height: 150px;
+          margin-bottom: 30px;
+
+          .picture {
+            width: 150px !important;
+            height: 150px !important;
+            &:after {
+              display: none;
+            }
+          }
+          .text-box {
+            max-width: 500px;
+            padding-left: 200px;
+            @media screen and (max-width: $responsiveBreakSmall) {
+              padding: 180px 0 0;
+              width: 100%;
+            }
+            .line {
+              display: none;
+            }
+          }
+        }
+      }
+
+      h1 {
+        font-size: 35px;
+        line-height: 20px;
+        small {
+          color: grey;
+          font-size: 16px;
+          text-transform: none;
+        }
+        @media screen and (max-width: $responsiveBreakSmall) {
+          font-size: 25px;
+        }
+      }
+
+      h3 {
+        margin: 0;
+      }
+
+      table.tech-table {
+        font-size: 12px;
+        text-align: left;
+        max-width: 600px;
+
+        .diagramm {
+          font-size: 0.7em;
+          letter-spacing: 0.05em;
+          position: relative;
+          top: -7px;
+          display: inline-block;
+          border: 1px solid grey;
+          padding: 3px 15px;
+          border-radius: 5px;
+          float: right;
+          color: grey;
+          text-decoration: none;
+          margin-top: 10px;
+
+        }
+
+        th, td {
+          border: 1px solid $colorGreyDark;
+          padding: 2px 10px;
+          &:first-child {
+            border-left: none;
+            width: 40%;
+          }
+          &:last-child {
+            border-right: none;
+          }
+        }
+
+        th {
+          border-top: none;
+          text-transform: uppercase;
+          letter-spacing: 0.2em;
+          font-size: 1.6em;
+          //line-height: 30px;
+        }
+
+        tr:last-child td {
+          border-bottom: none;
+        }
+      }
+      .table-appendix {
+        font-size: 0.8em;
+        font-style: italic;
+      }
+    }
   }
 
-  table {
-    width: 100%;
-  }
-  & th {
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: 1.2em;
-  }
-
-  & th, & td {
-    border: 1px solid $colorGreyDark;
-    padding: 10px;
-  }
-
-  .table-appendix {
-    font-size: 0.8em;
-    font-style: italic;
+  .buttonLike {
+    cursor: pointer;
   }
 
   .picture._color {
@@ -674,62 +911,9 @@ ion-icon {
 
   .picture._rueckseite {
     background-image: url("../assets/img/pictures/rueckseite.png");
-    background-size:contain;
-    min-height: 400px;
-  }
-
-  .picture._frequenzgang {
-    margin-top: 20px;
-    position: relative;
-    background-image: url("../assets/img/pictures/kurve.png");
-    width: 100%;
-    max-width: 100%;
-    padding-top: 55%;
     background-size: contain;
-    border: none;
-    background-position: left top;
-  }
-
-  .price {
-    font-style: normal;
-    color: rgba(93, 93, 93, 0.99);
-    text-transform: none;
-    margin: 0;
-  }
-
-  .item .box._price {
-    height: auto;
-    min-height: 0;
-  }
-
-}
-
-//---------------------------------//
-//TIC
-
-#TIC {
-  .picture._TIC_header {
-    background-image: url("../assets/img/pictures/inside.jpg");
-  }
-
-  .picture._TIC {
-    margin-top: 30px;
-    border: none !important;
-    width: 100%;
-    padding-top: 35%;
-    background-size: contain;
-    background-image: url("../assets/img/pictures/TIC.png");
-  }
-
-  .box {
-    padding: 40px;
-    display: block;
-    width: 100% !important;
-    max-width: none;
-  }
-
-  p {
-    margin-bottom: 15px;
+    //border: 1px solid red;
+    height: 100%;
   }
 }
 
@@ -737,7 +921,7 @@ ion-icon {
 //Service
 #service {
 
-  .box._moreText {
+  .text-box._moreText {
     max-width: 60%;
   }
 
@@ -759,17 +943,70 @@ ion-icon {
 
 }
 
-  .noLinkStyle{
-    color: inherit!important;
-    text-decoration: none!important;
-  }
+.noLinkStyle {
+  color: inherit !important;
+  text-decoration: none !important;
+}
 
 // ---------------------------------//
 //Kontakt
 
 #kontakt {
 
+  .line {
+    width: 10%!important;
+    margin-bottom: 5px!important;
+  }
 
+  .picture.header {
+    position: relative;
+    a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+  }
+
+  .item-box {
+    padding: 30px;
+  }
+
+  //.row.shop {
+  //  padding-top: 30px;
+  //  padding-bottom: 30px;
+  //}
+
+  .item-box.contact, .item-box.shop {
+    height: auto;
+
+    .picture._contact, .picture.shop {
+      position: relative;
+      display: inline-block;
+      width: 300px !important;
+      min-width: auto;
+      max-width: none;
+      min-height: auto;
+      max-height: none;
+      height: 200px;
+
+      &._rohrer, &._loeffel {
+        height: 100px;
+        background-color: #cbcbcb;
+      }
+    }
+
+    .text-box {
+      padding-left: 70px;
+      height: auto;
+      min-height: auto;
+
+      h2 {
+        font-size: 25px;
+      }
+    }
+  }
 
   .line {
     width: 100%;
@@ -778,9 +1015,10 @@ ion-icon {
   }
 
   .picture.logo-kontakt {
+    position: relative;
     border: none;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 6px;
     background-color: #d5d5d5;
     display: block;
     height: 110px !important;
@@ -788,7 +1026,35 @@ ion-icon {
     min-height: 1px;
     background-size: 80%;
     background-image: url("../assets/img/logos/auraSonum3.png");
-    margin-bottom: 20px
+    margin-bottom: 20px;
+  }
+
+  .picture._contact, .picture._rohrer, .picture._loeffel {
+    width: 280px;
+    @media screen and (max-width: $responsiveBreakMiddle) {
+      width: 200px;
+    }
+    &:after {
+      display: none;
+    }
+  }
+
+  .row.shop {
+    min-height: auto;
+    @media screen and (max-width: $responsiveBreakSmall) {
+      padding-top: 120px;
+    }
+    .picture._rohrer, .picture._loeffel {
+      background-color: #dedede;
+      height: 100px;
+      @media screen and (max-width: $responsiveBreakBig) {
+        width: 200px !important;
+      }
+      @media screen and (max-width: $responsiveBreakMiddle) {
+        height: 100px !important;
+        width: 200px !important;
+      }
+    }
   }
 
   .picture._rohrer {
@@ -799,20 +1065,20 @@ ion-icon {
     background-image: url("../assets/img/pictures/reseller_loeffel.png");
     background-size: contain;
   }
-  .picture._wohlklang {
-    background-image: url("../assets/img/pictures/reseller_wohlklang.png");
-    background-size: contain;
-  }
 
   b {
     font-weight: 600;
   }
 
-  .box.login {
-    max-width: 100%;
+  .row.login {
+    padding-left: 10px;
+  }
 
-    .line {
-      width: 70%;
+  .row.login {
+    padding-left: 30px;
+    max-width: 100%;
+    @media screen and (max-width: $responsiveBreakSmall) {
+      padding: 0;
     }
   }
 
@@ -837,55 +1103,151 @@ ion-icon {
 
 #retailer {
 
-  b {
-    font-weight: 600;
+  .item-box {
+    padding-top: 30px !important;
+    padding-bottom: 10px !important;
+
+    .row {
+
+      h2 {
+        font-size: 25px;
+      }
+
+      .text-box {
+        display: block;
+        position: relative;
+        width: 100% !important;
+
+        .table-container {
+          //border: 1px solid red;
+          overflow: auto;
+          width: 100%;
+
+          table.tech-table {
+            max-width: 100%;
+            //border: 1px solid blue;
+            position: relative;
+            width: 100%;
+            font-size: 15px;
+
+            & td:first-child {
+              text-align: center;
+            }
+
+            th {
+              text-transform: none;
+              letter-spacing: 0.01em;
+              font-size: 20px;
+            }
+
+            td, th {
+              position: relative;
+              padding: 12px;
+            }
+
+            td:first-child {
+              height: 100px;
+              width: 50px;
+            }
+
+            .table-picture {
+              position: absolute;
+              top: 0;
+              right: 0;
+              left: 0;
+              display: block;
+              height: 100%;
+              width: 100%;
+              background-size: contain;
+              background-repeat: no-repeat;
+
+              &._prisma {
+                background-image: url("../assets/img/pictures/prisma_8.png");
+                background-size: 20%;
+              }
+              &._tonika {
+                background-image: url("../assets/img/pictures/tonika_1.png");
+                background-size: 40%;
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
-  .item .box {
-    height: auto;
-    min-height: 0;
+  b {
+    font-weight: 600;
   }
 
   .picture._retailer {
     background-image: url("../assets/img/pictures/retailer.jpg");
   }
 
-  .box {
-    width: 100%;
-    max-width: 100%;
+}
+
+
+.picture._farben {
+  background-position-y: 0;
+  background-size: 180%;
+}
+.go-top {
+  vertical-align: top;
+}
+.more-width {
+  width: 300px;
+}
+
+//---------------------------------//
+//Modal
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000000000000000000;
+  padding-top: 1%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+
+  /* Modal Content */
+  .modal-content {
+    position: relative;
+    max-width: 700px;
+    background-color: #e3e3e3;
+    height: 98.5%;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    text-align: center;
+    overflow: auto;
   }
 
-  table {
-    width: 100%;
-
-    & td:first-child {
-      text-align: center;
-    }
-
-    & .picture {
-      width: 100px;
-
-      &._prisma {
-        background-size: contain;
-        background-image: url("../assets/img/pictures/prisma_1.png");
-      }
-      &._tonika {
-        background-size: contain;
-        background-image: url("../assets/img/pictures/tonika_1.png");
-      }
-    }
-
-    & th {
-      white-space: nowrap;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      font-size: 0.9em;
-    }
-
-    & th, & td {
-      border: 1px solid $colorGreyDark;
-      padding: 10px;
-    }
-
+  /* The Close Button */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #aaaaaa;
+    font-size: 28px;
+    font-weight: bold;
   }
+
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  img {
+    width: auto;
+    //height: 90vh;
+  }
+
 }

@@ -1,0 +1,102 @@
+{
+  "_from": "@kai-ono/lazy-slider",
+  "_id": "@kai-ono/lazy-slider@0.2.8",
+  "_inBundle": false,
+  "_integrity": "sha512-57s/9uXquh4gmR8O1+iUVHWQotwSE6uJvmy6v8VcPtlTSShEx05UpzeAp2hm+Xw0HVB+oy7UOsF3V7lvNxYTKA==",
+  "_location": "/@kai-ono/lazy-slider",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@kai-ono/lazy-slider",
+    "name": "@kai-ono/lazy-slider",
+    "escapedName": "@kai-ono%2flazy-slider",
+    "scope": "@kai-ono",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@kai-ono/lazy-slider/-/lazy-slider-0.2.8.tgz",
+  "_shasum": "a781813646a117867eeb47c3fe031c086e5d1788",
+  "_spec": "@kai-ono/lazy-slider",
+  "_where": "/Users/bornhauser/Documents/2_Kunden/Urs Batt/_ionicApp",
+  "author": {
+    "name": "kai-ono"
+  },
+  "bugs": {
+    "url": "https://github.com/kai-ono/lazy-slider/issues"
+  },
+  "bundleDependencies": false,
+  "dependencies": {
+    "classlist-polyfill": "^1.0.3",
+    "es5-shim": "^4.5.9",
+    "es6-promise": "^4.1.1"
+  },
+  "deprecated": false,
+  "description": "https://kai-ono.github.io/lazy-slider/dest/",
+  "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^7.3.0",
+    "csswring": "^6.0.1",
+    "del": "^3.0.0",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.7.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
+    "gulp-eslint": "^4.0.2",
+    "gulp-plumber": "^1.1.0",
+    "gulp-postcss": "^7.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sourcemaps": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "gulp-webserver": "^0.9.1",
+    "postcss": "^6.0.21",
+    "postcss-cssnext": "^3.0.2",
+    "precss": "^2.0.0",
+    "standard": "^11.0.1"
+  },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "package.json",
+    "dest",
+    "src"
+  ],
+  "homepage": "https://github.com/kai-ono/lazy-slider#readme",
+  "keywords": [
+    "slider",
+    "caroucel",
+    "gallery",
+    "responsive"
+  ],
+  "license": "MIT",
+  "main": "dest/js/lazy-slider.js",
+  "name": "@kai-ono/lazy-slider",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kai-ono/lazy-slider.git"
+  },
+  "scripts": {
+    "all": "gulp all",
+    "css": "gulp css",
+    "fix": "standard --fix",
+    "html": "gulp html",
+    "img": "gulp img",
+    "js": "gulp js",
+    "lint": "gulp eslint",
+    "server": "gulp server",
+    "start": "gulp",
+    "test": "gulp js",
+    "watch": "gulp watch"
+  },
+  "version": "0.2.8"
+}
